@@ -1,0 +1,36 @@
+<div style="background-color: #3E2723; color: #F5F5F5; padding: 40px; min-height: 100vh; text-align: center; font-family: 'Arial', sans-serif;">
+  
+  <div style="background-color: #5D4037; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto; box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);">
+    <h1 style="font-size: 28px; font-weight: bold; margin-bottom: 15px; color: #FFD700;"><%= @book.title %></h1>
+
+    <p style="font-size: 18px;"><strong>Author:</strong> <%= @book.author %></p>
+    <p style="font-size: 18px;"><strong>ISBN:</strong> <%= @book.isbn %></p>
+
+    <!-- Styled Status Display -->
+    <p style="font-size: 18px;">
+      <strong>Status:</strong> 
+      <span style="font-weight: bold; color: <%= @book.available? ? '#81C784' : '#FF8A80' %>;">
+        <%= @book.available? ? "✅ Available" : "❌ Borrowed" %>
+      </span>
+    </p>
+
+    <% if @book.available? %>
+      <div style="margin-top: 20px;">
+        <%= button_to "📖 Borrow this Book", borrow_book_path(@book), method: :post, class: "btn btn-success", style: "padding: 12px 24px; font-size: 16px; background-color: #FFD700; color: #3E2723; border-radius: 5px; text-decoration: none; font-weight: bold;" %>
+      </div>
+    <% else %>
+      <p style="font-size: 18px; color: #FF8A80; font-weight: bold;">This book is currently borrowed.</p>
+
+      <% if current_user.borrowings.exists?(book: @book, returned: false) %>
+        <div style="margin-top: 15px;">
+          <%= button_to "↩ Return this Book", return_book_book_path(@book), method: :post, class: "btn btn-danger", style: "padding: 12px 24px; font-size: 16px; border-radius: 5px; text-decoration: none; font-weight: bold;" %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div style="margin-top: 25px;">
+      <%= link_to "🔙 Back to Book List", books_path, class: "btn btn-primary", style: "padding: 12px 24px; font-size: 16px; background-color: #0288D1; color: white; border-radius: 5px; text-decoration: none; font-weight: bold;" %>
+    </div>
+  </div>
+
+</div>

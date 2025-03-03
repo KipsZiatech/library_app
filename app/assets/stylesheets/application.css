@@ -1,0 +1,156 @@
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  /* Centering the Title */
+  .page-title {
+    text-align: center;
+    font-size: 32px;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  /* Books Container - Forced Horizontal Layout */
+  .books-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    gap: 20px;
+    padding: 20px;
+    white-space: nowrap; /* Prevent items from stacking */
+  }
+  
+  /* Book Card Styling */
+  .book-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 220px; /* Ensures uniform width */
+    text-align: center;
+    flex: 0 0 auto; /* Prevent flex items from shrinking */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .book-card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  /* Book Info Styling */
+  .book-info {
+    line-height: 1.5;
+  }
+  
+  /* Book Status */
+  .available {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .borrowed {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Buttons */
+  .btn-view {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .btn-view:hover {
+    background: #0056b3;
+  }
+  
+  /* Scrollbar Styling for Horizontal Scrolling */
+  .books-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .books-container::-webkit-scrollbar-thumb {
+    background: #007BFF;
+    border-radius: 10px;
+  }
+  
+  .books-container::-webkit-scrollbar-track {
+    background: #ddd;
+  }
+  .btn-return {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #28a745; /* Green color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .btn-return:hover {
+    background: #218838;
+  }
+  /* Background and General Styling */
+body {
+    background-color: #f5efe6; /* Warm library-like background */
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  /* Borrowed Books Container */
+  .borrowed-books-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+  .borrowed-books-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50%;
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .return-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+  }
+  
+  .return-btn:hover {
+    background-color: #c82333;
+  }
+  
+  .back-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+  }
+  
+  .back-btn:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,25 @@
+<div style="background-color: #3E2723; color: #F5F5F5; padding: 40px; min-height: 100vh; text-align: center; font-family: 'Arial', sans-serif;">
+  
+  <h1 style="font-size: 32px; font-weight: bold; margin-bottom: 20px; color: #FFD700;">📚 Library Collection</h1>
+
+  <ul style="list-style: none; padding: 0; max-width: 800px; margin: 0 auto;">
+    <% @books.each do |book| %>
+      <li style="background-color: #5D4037; padding: 20px; border-radius: 8px; margin-bottom: 15px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); text-align: left; color: #FFF3E0;">
+        <strong>📖 Title:</strong> <%= book.title %> <br>
+        <strong>✍️ Author:</strong> <%= book.author %> <br>
+        <strong>🔢 ISBN:</strong> <%= book.isbn %> <br>
+        <strong>📌 Status:</strong> 
+        <span style="font-weight: bold; color: <%= book.available? ? '#81C784' : '#FF8A80' %>;">
+          <%= book.available? ? "Available ✅" : "Borrowed ❌" %>
+        </span>
+        <br>
+
+        <div style="margin-top: 10px;">
+          <%= link_to "🔍 View", book_path(book), class: "btn btn-light", style: "padding: 12px 24px; font-size: 16px; color: #3E2723; background-color: #FFD700; border-radius: 5px; text-decoration: none; font-weight: bold; margin-right: 10px;" %>
+          
+          <%= link_to "📚 My Borrowed Books", profile_path, class: "btn btn-info", style: "padding: 12px 24px; font-size: 16px; border-radius: 5px; background-color: #0288D1; color: white; text-decoration: none; font-weight: bold;" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

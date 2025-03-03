@@ -1,0 +1,32 @@
+<div style="background-color: #3E2723; color: #F5F5F5; padding: 40px; min-height: 100vh; text-align: center; font-family: 'Arial', sans-serif;">
+  
+  <div style="background-color: #5D4037; padding: 30px; border-radius: 10px; max-width: 700px; margin: 0 auto; box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);">
+    <h2 style="font-size: 26px; font-weight: bold; margin-bottom: 20px; color: #FFD700;">📖 My Borrowed Books</h2>
+
+    <% if @borrowed_books.any? %>
+      <ul style="list-style: none; padding: 0;">
+        <% @borrowed_books.each do |borrowing| %>
+          <li style="background-color: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 8px; margin-bottom: 10px; box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2); text-align: left;">
+            <strong style="font-size: 18px; color: #FFD700;"><%= borrowing.book.title %></strong>  
+            <span style="font-size: 16px;">by <%= borrowing.book.author %></span>  
+            <br>
+            <span style="font-size: 16px; font-weight: bold; color: #FF8A80;">Due: <%= borrowing.due_date.strftime('%d %b %Y') %></span>
+            
+            <div style="margin-top: 10px;">
+              <%= button_to "↩ Return", return_book_book_path(borrowing.book), method: :post, class: "btn btn-danger", 
+                style: "padding: 10px 20px; font-size: 16px; background-color: #FF8A80; color: white; border-radius: 5px; text-decoration: none; font-weight: bold;" %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p style="font-size: 18px; font-weight: bold; color: #FFD700;">You have not borrowed any books.</p>
+    <% end %>
+
+    <div style="margin-top: 25px;">
+      <%= link_to "📚 Back to Books", books_path, class: "btn btn-primary", 
+        style: "padding: 12px 24px; font-size: 16px; background-color: #0288D1; color: white; border-radius: 5px; text-decoration: none; font-weight: bold;" %>
+    </div>
+  </div>
+
+</div>
